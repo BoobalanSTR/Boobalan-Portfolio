@@ -1,0 +1,7 @@
+.titleStyle {
+    @apply text-[15px] font-semibold leading-[45px] cursor-pointer text-center
+}
+
+.logoImg {
+    @apply w-12 h-12
+}

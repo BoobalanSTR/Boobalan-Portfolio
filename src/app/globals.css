@@ -2,26 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.body {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.custom-background-class {
+  background-image: url('../../public/assets/img/backMain.jpg');
+  background-size: cover;
+}
+
+@media (min-width: 640px) {
+  .custom-background-class {
+    background-image: url('../../public/assets/img/backMain.jpg');
+    background-size: cover;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.dropdown-menu ul {
+  /* width: 100px; */
+  list-style: none;
+  font-size: 1rem;
+}
+
+.dropdown-menu {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  /* width: 100px; */
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+  /* background-color: #ff4dd2; */
+}
+
+.dropdown {
+  position: absolute;
+  /* width: 200px; */
+}
+
+.dropdown li {
+  display: none;
+  opacity: 0;
+  background-color: #fff;
+  transition: color .3s;
+}
+
+/* .dropdown li:hover {
+  background: #dddddd;
+} */
+
+.dropdown-menu:hover .dropdown li {
+  display: block;
+  animation: animation .5s forwards;
+}
+
+@keyframes animation {
+  from {
+    opacity: 0;
+    transform: translate(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.dropdown-menu .dropdown li:nth-last-child(1) {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.dropdown-menu:hover .dropdown li:nth-child(2) {
+  animation-delay: .2s
+}
+
+.dropdown-menu:hover .dropdown li:nth-child(3) {
+  animation-delay: .4s
+}
+
+.dropdown-menu:hover .dropdown li:nth-child(4) {
+  animation-delay: .6s
+}
+
+.dropdown-menu:hover .dropdown li:nth-child(5) {
+  animation-delay: .8s;
+}
+
+.css-1aquho2-MuiTabs-indicator {
+  display: none !important;
+}
+
+.buttonFor {
+  position: relative;
+  padding: 17px 40px 13px;
+  font-weight: bold;
+  text-transform: capitalize;
+  background-color: #fe3e57;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buttonFor::before {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.buttonFor:hover {
+  background-color: white;
+  color: #fe3e57;
+}
+
+.buttonFor:hover::before {
+  transform: translate(-50%, -50%) scale(3);
+  opacity: 1;
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #dddddd !important
 }
