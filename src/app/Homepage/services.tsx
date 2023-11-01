@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const Services = () => {
@@ -34,8 +35,8 @@ const Services = () => {
                         imageSrc1: '/assets/svg/rebustar.svg',
                         className: "absolute w-16 h-16 top-[55px] left-[77px]"
                     }
-                ].map(project => (
-                    <div className='grid justify-center lg:grid-cols-2 justify-items-center'>
+                ].map((project, index) => (
+                    <div key={index} className='grid justify-center lg:grid-cols-2 justify-items-center'>
                         <div className='relative'>
                             <img className=' ' src={project.imageSrc} alt='Image Alt Text' />
                             <img className={project.className} src={project.imageSrc1} alt='Image Alt Text' />

@@ -5,8 +5,9 @@ import * as Yup from 'yup';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import CallIcon from '@mui/icons-material/Call';
-import Snackbar from '@mui/material/Snackbar';
+import Snackbar, { SnackbarCloseReason } from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Image from 'next/image'
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
     props,
     ref,
@@ -17,13 +18,16 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [severity, setSeverity] = useState<'success' | 'error'>('success');
-
-    const handleSnackbarClose: SnackbarProps['onClose'] = (event, reason) => {
+    const handleSnackbarClose = (event: React.SyntheticEvent | MouseEvent, reason?: SnackbarCloseReason) => {
         if (reason === 'clickaway') {
             return;
         }
         setSnackbarOpen(false);
     };
+
+
+
+
     const formik = useFormik({
         initialValues: {
             firstName: '',
@@ -79,54 +83,45 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 <p className='text-[#13105] text-[1.875rem] font-semibold py-3 text-center'>Get In Touch</p>
                 <form
                     onSubmit={formik.handleSubmit} className="grid justify-center gap-5">
-                    <div className='flex flex-wrap  gap-3'> <div>
+                    <div className='flex flex-wrap  gap-3'>
                         <input
                             className='border-2 border-[#dddddd] rounded-md px-5 py-2'
                             placeholder='Firstname'
                             type="text"
-                            id="firstName"
-                            name="firstName"
                             {...formik.getFieldProps('firstName')}
                         />
                         {formik.touched.firstName && formik.errors.firstName ? (
                             <div className='text-xs text-[#ff0000]'>{formik.errors.firstName}</div>
                         ) : null}
-                    </div>
                         <div>
                             <input
                                 className='border-2 border-[#dddddd] rounded-md px-5 py-2'
                                 placeholder='Lastname'
                                 type="text"
-                                id="lastName"
-                                name="lastName"
                                 {...formik.getFieldProps('lastName')}
                             />
                             {formik.touched.lastName && formik.errors.lastName ? (
                                 <div className='text-xs text-[#ff0000]'>{formik.errors.lastName}</div>
                             ) : null}
                         </div>
+
                     </div>
                     <div>
                         <input
                             className='border-2 rounded-md border-[#dddddd] px-5 py-2'
                             placeholder='Email'
                             type="email"
-                            id="email"
-                            name="email"
                             {...formik.getFieldProps('email')}
                         />
                         {formik.touched.email && formik.errors.email ? (
                             <div className='text-xs text-[#ff0000]'>{formik.errors.email}</div>
                         ) : null}
                     </div>
-
                     <div>
                         <input
                             className='border-2 rounded-md border-[#dddddd] px-5 py-2'
                             placeholder='Subject'
                             type="text"
-                            id="subject"
-                            name="subject"
                             {...formik.getFieldProps('subject')}
                         />
                         {formik.touched.subject && formik.errors.subject ? (
@@ -137,8 +132,6 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         <textarea
                             className='border-2 w-full rounded-md border-[#dddddd] px-5 py-2'
                             placeholder='Message'
-                            id="message"
-                            name="message"
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter') {
                                     e.preventDefault();
@@ -152,8 +145,8 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                     </div>
                     <button type="submit" className='px-5 py-3 mx-auto bg-[#fe3e57] rounded-full text-white font-semibold border-2 border-[#dddddd] '>Send Message</button>
                 </form>
-                <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
-                    <Alert onClose={handleSnackbarClose} severity={severity}>
+                <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={() => handleSnackbarClose}>
+                    <Alert onClose={() => handleSnackbarClose} severity={severity}>
                         {snackbarMessage}
                     </Alert>
                 </Snackbar>
@@ -161,7 +154,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
             <section className='lg:w-1/2 grid  gap-7'>
                 {[
                     {
-                        icon: <img src="/assets/svg/address.svg" className='w-7 h-7' />,
+                        icon: <Image src="/assets/svg/address.svg" className='w-7 h-7' />,
                         content: (
                             <span className='grid gap-2'>
                                 <span>12/22,Muthurengan Street, Madurai</span>
@@ -199,5 +192,5 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
     );
 })
-
+ContactForm.displayName = 'ContactForm';
 export default ContactForm;

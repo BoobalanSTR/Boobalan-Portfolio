@@ -1,14 +1,19 @@
 import React from 'react'
 
-const Footer = () => {
-    const SocialMediaLink = ({ href, src, alt }) => (
-        <a href={href} target="_blank" rel="noopener noreferrer">
-            <div className='border-2 p-3 border-[#dddddd] rounded-full hover:border-[#222] cursor-pointer'>
-                <img className='w-12 h-12' src={src} alt={alt} />
-            </div>
-        </a>
-    );
+interface SocialMediaLinkProps {
+    href: string;
+    src: string;
+    alt: string;
+}
 
+const SocialMediaLink: React.FC<SocialMediaLinkProps> = ({ href, src, alt }) => (
+    <a href={href} target="_blank" rel="noopener noreferrer">
+        <div className='border-2 p-3 border-[#dddddd] rounded-full hover:border-[#222] cursor-pointer'>
+            <img className='w-12 h-12' src={src} alt={alt} />
+        </div>
+    </a>
+);
+const Footer: React.FC = () => {
     const socialLinks = [
         { href: "https://www.linkedin.com/in/boobalan-r-4a5366179/", src: './assets/svg/linkedin.svg', alt: 'LinkedIn' },
         { href: "https://wa.me/7695018927", src: './assets/svg/whatsapp.svg', alt: 'WhatsApp' },

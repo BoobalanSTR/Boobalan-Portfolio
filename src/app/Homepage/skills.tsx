@@ -1,15 +1,19 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, useEffect, useRef } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+const Skills: React.FC = () => {
+    const [value, setValue] = useState<number>(0);
+    const [data, setData] = useState(null);
+    const [currentlyPlayingId, setCurrentlyPlayingId] = useState(null);
+    const videoRefs = useRef({})
 
-const Skills = () => {
-    const [value, setValue] = useState(0);
-
-
-    const handleChange = (event, newValue) => {
+    const handleChange = (event: ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
     };
+    // const [data, setData] = useState(null);
 
     return (
         <>

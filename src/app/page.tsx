@@ -7,7 +7,7 @@ import Skills from './Homepage/skills';
 import Services from './Homepage/services';
 import ContactForm from './Homepage/contact';
 import Footer from './Homepage/footer';
-import { useRef } from 'react';
+import { useRef, MouseEventHandler } from 'react';
 export default function Home() {
   const style = {
     backgroundImage: `url(${backgroundImage.src})`,
@@ -17,7 +17,7 @@ export default function Home() {
   };
   const craftmanRef = useRef<HTMLDivElement>(null);
   const contactFormRef = useRef<HTMLDivElement>(null);
-  const scrollToAbout: MouseEventHandler<HTMLAnchorElement> = (event) => {
+  const scrollToAbout: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
     event.preventDefault();
     if (craftmanRef.current) {
       craftmanRef.current.scrollIntoView({ behavior: 'smooth' });

@@ -39,7 +39,9 @@
 
 .dropdown {
   position: absolute;
-  /* width: 200px; */
+  left: -45%;
+  width: 100px;
+
 }
 
 .dropdown li {
@@ -47,6 +49,7 @@
   opacity: 0;
   background-color: #fff;
   transition: color .3s;
+  font-size: 13px;
 }
 
 /* .dropdown li:hover {
@@ -136,3 +139,11 @@
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
   color: #dddddd !important
 }
+
+.css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root {
+  display: none !important;
+}
+
+/* .css-79ws1d-MuiModal-root {
+  opacity: 0.9 !important;
+} */

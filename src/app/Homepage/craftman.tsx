@@ -41,5 +41,5 @@ const Craftman = forwardRef((props, ref) => {
         </div>
     )
 })
-
+Craftman.displayName = 'Craftman';
 export default Craftman

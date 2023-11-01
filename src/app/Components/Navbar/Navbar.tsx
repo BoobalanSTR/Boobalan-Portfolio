@@ -1,21 +1,33 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import styles from "./Navbar.module.css"
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Image from 'next/image';
+import Link from 'next/link';
 
 
 interface NavbarProps {
-    scrollToAbout: React.MouseEventHandler;
-    scrollToContactForm: React.MouseEventHandler;
+    scrollToAbout: React.MouseEventHandler<HTMLAnchorElement>;
+    scrollToContactForm: React.MouseEventHandler<HTMLAnchorElement>;
 }
-
 const Navbar: React.FC<NavbarProps> = ({ scrollToAbout, scrollToContactForm }) => {
+    const [cards, setCards] = useState<React.ReactNode[]>([]);
+
     return (
         <>
             <nav className=' bg-white w-full '>
                 <div className='flex justify-between  items-center px-[15px] py-[15px]  max-w-[1200px] mx-auto'>
                     <div>
-                        <img className={`${styles.logoImg}`} src="/assets/img/logo.svg"></img>
+                        {/* <img className={`${styles.logoImg}`} src="/assets/img/logo.svg"></img> */}
+                        <Image
+                            src="/assets/img/logo.svg"
+                            alt="Logo"
+                            className={styles.logoImg}
+                            width={1600}
+                            height={900}
+                        />
+
                     </div>
                     <div className='md:flex hidden md:gap-7 lg:gap-[50px]'>
                         <p className={`${styles.titleStyle}`}>Home</p>
@@ -25,8 +37,12 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToAbout, scrollToContactForm }) =
                         <div className='dropdown-menu w-auto'>
                             Pages
                             <ul className='dropdown'>
-                                <li>Contact</li>
-                                <li>Contact</li>
+                                <li>
+                                    <Link href="../../task1">Task 1</Link>
+                                </li>
+                                <li>
+                                    <Link href="../../task2">Task 2</Link>
+                                </li>
                                 <li>Contact</li>
                                 <li>Contact</li>
                                 <li>Contact</li>
