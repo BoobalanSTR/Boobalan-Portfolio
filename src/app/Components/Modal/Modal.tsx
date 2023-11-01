@@ -15,7 +15,12 @@ const style = {
     p: 4,
 };
 
-export default function BasicModal({ button, children }) {
+interface BasicModalProps {
+    button: React.ReactElement;
+    children: React.ReactNode;
+}
+
+export default function BasicModal({ button, children }: BasicModalProps) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
