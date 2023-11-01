@@ -19,15 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToAbout, scrollToContactForm }) =
             <nav className=' bg-white w-full '>
                 <div className='flex justify-between  items-center px-[15px] py-[15px]  max-w-[1200px] mx-auto'>
                     <div>
-                        {/* <img className={`${styles.logoImg}`} src="/assets/img/logo.svg"></img> */}
-                        <Image
-                            src="/assets/img/logo.svg"
-                            alt="Logo"
-                            className={styles.logoImg}
-                            width={1600}
-                            height={900}
-                        />
-
+                        <Image src="/assets/img/logo.svg" alt="Logo" className={styles.logoImg} width={1600} height={900} />
                     </div>
                     <div className='md:flex hidden md:gap-7 lg:gap-[50px]'>
                         <p className={`${styles.titleStyle}`}>Home</p>
@@ -35,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToAbout, scrollToContactForm }) =
                         <a className={`${styles.titleStyle}`} href="#" onClick={scrollToAbout}>About</a>
                         <p className={`${styles.titleStyle}`}>Portfolio</p>
                         <div className='dropdown-menu w-auto'>
-                            Pages
+                            <p>Pages</p>
                             <ul className='dropdown'>
                                 <li>
                                     <Link href="../../task1">Task 1</Link>

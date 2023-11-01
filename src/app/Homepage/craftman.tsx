@@ -1,6 +1,6 @@
 "use client"
 import React, { forwardRef } from 'react';
-
+import Image from 'next/image'
 const Craftman = forwardRef((props, ref) => {
     const handleDownload = () => {
         const fileUrl = "../../../public/assets/pdf/@ResumeBoobalan.pdf"
@@ -27,7 +27,7 @@ const Craftman = forwardRef((props, ref) => {
     return (
         <div ref={ref} className='w-full mt-28 md:flex justify-center items-center gap-5'>
             <div className='w-full md:w-1/2 '>
-                <img src="/assets/img/exp.jpg" className='mx-auto h-[400px]  w-[600px]  rounded-xl ' />
+                <Image src="/assets/img/exp.jpg" alt="exp" className='mx-auto h-[400px]  w-[600px]  rounded-xl ' />
             </div>
             <div className='w-full md:w-1/2  '>
                 <div className=''>
