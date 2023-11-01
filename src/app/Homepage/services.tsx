@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import React from 'react'
 
 const Services = () => {
@@ -38,8 +38,8 @@ const Services = () => {
                 ].map((project, index) => (
                     <div key={index} className='grid justify-center lg:grid-cols-2 justify-items-center'>
                         <div className='relative'>
-                            <img className=' ' src={project.imageSrc} alt='Image Alt Text' />
-                            <img className={project.className} src={project.imageSrc1} alt='Image Alt Text' />
+                            <Image width={1600} height={900} className=' ' src={project.imageSrc} alt='Image Alt Text' />
+                            <Image width={64} height={64} className={project.className} src={project.imageSrc1} alt='Image Alt Text' />
                         </div>
                         <p className='text-[30px]   leading-[35px] font-semibold max-w-[353px] grid text-center lg:text-start'>
                             <span>{project.title}</span>

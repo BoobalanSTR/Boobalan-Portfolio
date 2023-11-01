@@ -37,7 +37,8 @@ export default function Home() {
         scrollToContactForm={scrollToContactForm}
       />
       <Explore />
-      <Craftman ref={craftmanRef} />
+      <Craftman prop1="Value for prop1" prop2={42} ref={craftmanRef} />
+
       <Skills />
       <Services />
       <ContactForm ref={contactFormRef} />

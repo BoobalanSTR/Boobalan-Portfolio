@@ -154,7 +154,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
             <section className='lg:w-1/2 grid  gap-7'>
                 {[
                     {
-                        icon: <Image src="/assets/svg/address.svg" alt="Image3" className='w-7 h-7' />,
+                        icon: <Image src="/assets/svg/address.svg" alt="Image3" width={28} height={28} />,
                         content: (
                             <span className='grid gap-2'>
                                 <span>12/22,Muthurengan Street, Madurai</span>
