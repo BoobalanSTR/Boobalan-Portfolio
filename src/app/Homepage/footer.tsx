@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
         { href: "https://www.facebook.com/profile.php?id=100007512106938&mibextid=ZbWKwL", src: './assets/svg/fb.svg', alt: 'Facebook' },
     ];
     return (
-        <section className='flex justify-center my-10 p-10 gap-5'>
+        <section className='flex justify-center my-10  gap-5'>
             {socialLinks.map((link, index) => (
                 <SocialMediaLink key={index} {...link} />
             ))}

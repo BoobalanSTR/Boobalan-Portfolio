@@ -2,17 +2,40 @@
     @apply h-[calc(100vh-120px)] flex justify-start items-end
 }
 
-@media screen and (min-width: 1000px) {
-    .handleContent {
-        @apply mx-[180px] max-w-[56%];
-    }
+.handleContent {
+    @apply max-w-[55%] mx-[30px]
 }
 
-
 .titleHead {
-    @apply text-[60px] text-[#222] font-bold py-[25px] leading-[90px]
+    @apply text-[60px] text-[#222] font-bold py-[25px] leading-[70px]
 }
 
 .smallHead {
     @apply text-[16px];
 }
+
+@media screen and (min-width: 700px) and (max-width: 999px) {
+    .handleContent {
+        @apply max-w-[81%] mx-[30px] mt-10
+    }
+
+
+}
+
+@media screen and (max-width: 699px) {
+    .handleContent {
+        @apply mx-[30px] max-w-[86%];
+    }
+
+    .titleHead {
+        @apply text-[34px] text-[#222] font-bold py-[25px] leading-[47px]
+    }
+}
+
+/* .titleHead {
+    @apply text-[60px] text-[#222] font-bold py-[25px] leading-[70px]
+}
+
+.smallHead {
+    @apply text-[16px];
+} */

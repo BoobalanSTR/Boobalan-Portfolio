@@ -83,16 +83,17 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 <p className='text-[#13105] text-[1.875rem] font-semibold py-3 text-center'>Get In Touch</p>
                 <form
                     onSubmit={formik.handleSubmit} className="grid justify-center gap-5">
-                    <div className='flex flex-wrap  gap-3'>
-                        <input
+                    <div className=' grid md:flex md:flex-wrap justify-center md:justify-start  gap-3'>
+                        <div> <input
                             className='border-2 border-[#dddddd] rounded-md px-5 py-2'
                             placeholder='Firstname'
                             type="text"
                             {...formik.getFieldProps('firstName')}
                         />
-                        {formik.touched.firstName && formik.errors.firstName ? (
-                            <div className='text-xs text-[#ff0000]'>{formik.errors.firstName}</div>
-                        ) : null}
+                            {formik.touched.firstName && formik.errors.firstName ? (
+                                <div className='text-xs text-[#ff0000]'>{formik.errors.firstName}</div>
+                            ) : null}
+                        </div>
                         <div>
                             <input
                                 className='border-2 border-[#dddddd] rounded-md px-5 py-2'
@@ -106,27 +107,31 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         </div>
 
                     </div>
-                    <div>
-                        <input
-                            className='border-2 rounded-md border-[#dddddd] px-5 py-2'
-                            placeholder='Email'
-                            type="email"
-                            {...formik.getFieldProps('email')}
-                        />
-                        {formik.touched.email && formik.errors.email ? (
-                            <div className='text-xs text-[#ff0000]'>{formik.errors.email}</div>
-                        ) : null}
+                    <div className='flex justify-center md:justify-start'>
+                        <div>
+                            <input
+                                className='border-2 rounded-md border-[#dddddd] px-5 py-2'
+                                placeholder='Email'
+                                type="email"
+                                {...formik.getFieldProps('email')}
+                            />
+                            {formik.touched.email && formik.errors.email ? (
+                                <div className='text-xs text-[#ff0000]'>{formik.errors.email}</div>
+                            ) : null}
+                        </div>
                     </div>
-                    <div>
-                        <input
-                            className='border-2 rounded-md border-[#dddddd] px-5 py-2'
-                            placeholder='Subject'
-                            type="text"
-                            {...formik.getFieldProps('subject')}
-                        />
-                        {formik.touched.subject && formik.errors.subject ? (
-                            <div className='text-xs text-[#ff0000]'>{formik.errors.subject}</div>
-                        ) : null}
+                    <div className='flex justify-center md:justify-start'>
+                        <div>
+                            <input
+                                className='border-2 rounded-md border-[#dddddd] px-5 py-2'
+                                placeholder='Subject'
+                                type="text"
+                                {...formik.getFieldProps('subject')}
+                            />
+                            {formik.touched.subject && formik.errors.subject ? (
+                                <div className='text-xs text-[#ff0000]'>{formik.errors.subject}</div>
+                            ) : null}
+                        </div>
                     </div>
                     <div>
                         <textarea
@@ -157,9 +162,14 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         icon: <Image src="/assets/svg/address.svg" alt="Image3" width={28} height={28} />,
                         content: (
                             <span className='grid gap-2'>
-                                <span>12/22,Muthurengan Street, Madurai</span>
+                                <span className='cursor-pointer'>
+                                    <a target="_blank" href='https://www.google.com/maps/search/?api=1&query=Thirumangalam,Madurai,TamilNadu'>
+                                        12/22,Muthurengan Street, Madurai
+                                    </a>
+                                </span>
                                 <span>Tamilnadu</span>
                             </span>
+
                         ),
                     },
                     {

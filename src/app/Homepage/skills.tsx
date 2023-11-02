@@ -17,7 +17,7 @@ const Skills: React.FC = () => {
 
     return (
         <>
-            <p className='text-center my-16 text-[70px] font-sans font-bold leading-[30px]'>My Skills</p>
+            <p className='text-center my-7 sm:my-10 md:my-16 text-[38px] sm:text-[44px] md:text-[70px] font-sans font-bold leading-[30px]'>My Skills</p>
             <Tabs
                 value={value}
                 onChange={handleChange}
@@ -41,9 +41,9 @@ const Skills: React.FC = () => {
                     <Tab
                         key={index}
                         label={
-                            <div className='py-10'>
+                            <div className='md:py-10'>
                                 <img className='w-[120px] h-[120px]' src={`/assets/svg/${item.icon}.svg`} alt={item.name} />
-                                <p className='font-semibold my-10'>{item.name}</p>
+                                <p className='font-semibold my-5 md:my-10'>{item.name}</p>
                             </div>
                         }
                     />

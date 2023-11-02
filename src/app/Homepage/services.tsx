@@ -4,7 +4,7 @@ import React from 'react'
 const Services = () => {
     return (
         <>
-            <p className='text-center my-16 font-sans text-[70px] font-bold leading-[30px]'>Projects</p>
+            <p className='text-center my-7 sm:my-10 md:my-16  font-sans text-[38px] sm:text-[44px] md:text-[70px] font-bold leading-[30px]'>Projects</p>
             <section className='grid sm:grid-cols-2 gap-y-10' >
                 {[
                     {

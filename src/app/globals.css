@@ -19,7 +19,7 @@
 }
 
 .dropdown-menu ul {
-  /* width: 100px; */
+  width: 153px;
   list-style: none;
   font-size: 1rem;
 }
@@ -39,7 +39,7 @@
 
 .dropdown {
   position: absolute;
-  left: -45%;
+  left: -111%;
   width: 100px;
 
 }

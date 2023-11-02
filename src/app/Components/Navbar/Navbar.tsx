@@ -5,6 +5,8 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Sidebar } from '../Sidebar/Sidebar';
+// import Sidebar from '../Sidebar/Sidebar';
 
 
 interface NavbarProps {
@@ -21,6 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToAbout, scrollToContactForm }) =
                     <div>
                         <Image src="/assets/img/logo.svg" alt="Logo" className={styles.logoImg} width={1600} height={900} />
                     </div>
+
                     <div className='md:flex hidden md:gap-7 lg:gap-[50px]'>
                         <p className={`${styles.titleStyle}`}>Home</p>
                         {/* <p >About</p> */}
@@ -43,12 +46,13 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToAbout, scrollToContactForm }) =
                         <p className={`${styles.titleStyle}`}>Blog</p>
                         <a href="#" className={`${styles.titleStyle}`} onClick={scrollToContactForm}>Contact</a>
                     </div>
-                    <div>
+                    <div className='flex items-center gap-5'>
                         <Button style={{ backgroundColor: "#fe3e57", color: "#fff", padding: "17px 40px 13px" }}>
                             Let's Talk
                         </Button>
-
+                        <Sidebar />
                     </div>
+
                 </div>
             </nav>
         </>
