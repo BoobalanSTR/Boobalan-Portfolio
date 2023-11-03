@@ -17,6 +17,7 @@ export default function Home() {
   };
   const craftmanRef = useRef<HTMLDivElement>(null);
   const contactFormRef = useRef<HTMLDivElement>(null);
+
   const scrollToAbout: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
     event.preventDefault();
     if (craftmanRef.current) {

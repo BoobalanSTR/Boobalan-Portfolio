@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Sidebar } from '../Sidebar/Sidebar';
-// import Sidebar from '../Sidebar/Sidebar';
+import { usePathname } from 'next/navigation'
 
 
 interface NavbarProps {
@@ -15,20 +15,23 @@ interface NavbarProps {
 }
 const Navbar: React.FC<NavbarProps> = ({ scrollToAbout, scrollToContactForm }) => {
     const [cards, setCards] = useState<React.ReactNode[]>([]);
-
+    const pathname = usePathname()
     return (
         <>
-            <nav className=' bg-white w-full '>
+            <nav className=' bg-white w-full border-b'>
                 <div className='flex justify-between  items-center px-[15px] py-[15px]  max-w-[1200px] mx-auto'>
                     <div>
                         <Image src="/assets/img/logo.svg" alt="Logo" className={styles.logoImg} width={1600} height={900} />
                     </div>
 
                     <div className='md:flex hidden md:gap-7 lg:gap-[50px]'>
-                        <p className={`${styles.titleStyle}`}>Home</p>
-                        {/* <p >About</p> */}
+                        {pathname !== '/' && (
+                            <Link href="/" className={`${styles.titleStyle}`}>Home</Link>
+                        )}
                         <a className={`${styles.titleStyle}`} href="#" onClick={scrollToAbout}>About</a>
-                        <p className={`${styles.titleStyle}`}>Portfolio</p>
+                        {pathname !== '/Project' && (
+                            <Link href="../../Project" className={`${styles.titleStyle}`}>Projects</Link>
+                        )}
                         <div className='dropdown-menu w-auto'>
                             <p>Pages</p>
                             <ul className='dropdown'>
@@ -44,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToAbout, scrollToContactForm }) =
                             </ul>
                         </div>
                         <p className={`${styles.titleStyle}`}>Blog</p>
-                        <a href="#" className={`${styles.titleStyle}`} onClick={scrollToContactForm}>Contact</a>
+                        <p className={`${styles.titleStyle}`} onClick={scrollToContactForm}>Contact</p>
                     </div>
                     <div className='flex items-center gap-5'>
                         <Button style={{ backgroundColor: "#fe3e57", color: "#fff", padding: "17px 40px 13px" }}>

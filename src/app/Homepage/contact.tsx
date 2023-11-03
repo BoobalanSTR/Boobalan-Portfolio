@@ -18,16 +18,12 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [severity, setSeverity] = useState<'success' | 'error'>('success');
-    const handleSnackbarClose = (event: React.SyntheticEvent | MouseEvent, reason?: SnackbarCloseReason) => {
+    const handleSnackbarClose = (event: Event | React.SyntheticEvent<any, Event>, reason?: SnackbarCloseReason) => {
         if (reason === 'clickaway') {
             return;
         }
         setSnackbarOpen(false);
     };
-
-
-
-
     const formik = useFormik({
         initialValues: {
             firstName: '',
@@ -78,7 +74,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
         navigator.clipboard.writeText(textToCopy);
     };
     return (
-        <div ref={ref} className='w-full grid justify-center////////8 lg:flex items-center'>
+        <div ref={ref} className='w-full mt-10 grid justify-center////////8 lg:flex items-center'>
             <section className='lg:w-1/2 border my-5 sm:mx-16 px-5 py-10  shadow-lg border-[#dddddd] rounded-md'>
                 <p className='text-[#13105] text-[1.875rem] font-semibold py-3 text-center'>Get In Touch</p>
                 <form
@@ -150,8 +146,8 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                     </div>
                     <button type="submit" className='px-5 py-3 mx-auto bg-[#fe3e57] rounded-full text-white font-semibold border-2 border-[#dddddd] '>Send Message</button>
                 </form>
-                <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={() => handleSnackbarClose}>
-                    <Alert onClose={() => handleSnackbarClose} severity={severity}>
+                <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+                    <Alert onClose={handleSnackbarClose} severity={severity}>
                         {snackbarMessage}
                     </Alert>
                 </Snackbar>

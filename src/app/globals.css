@@ -20,6 +20,7 @@
 
 .dropdown-menu ul {
   width: 153px;
+  z-index: 9;
   list-style: none;
   font-size: 1rem;
 }
