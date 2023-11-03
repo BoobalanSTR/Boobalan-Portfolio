@@ -25,12 +25,13 @@ export default function Home() {
     }
   };
 
-  const scrollToContactForm: MouseEventHandler<HTMLAnchorElement> = (event) => {
+  const scrollToContactForm: React.MouseEventHandler<HTMLParagraphElement> = (event) => {
     event.preventDefault();
     if (contactFormRef.current) {
       contactFormRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
     <div className="custom-background-class" style={style}>
       <Navbar

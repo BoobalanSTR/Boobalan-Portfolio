@@ -11,7 +11,7 @@ import { usePathname } from 'next/navigation'
 
 interface NavbarProps {
     scrollToAbout: React.MouseEventHandler<HTMLAnchorElement>;
-    scrollToContactForm: React.MouseEventHandler<HTMLAnchorElement>;
+    scrollToContactForm: React.MouseEventHandler<HTMLParagraphElement>;
 }
 const Navbar: React.FC<NavbarProps> = ({ scrollToAbout, scrollToContactForm }) => {
     const [cards, setCards] = useState<React.ReactNode[]>([]);
