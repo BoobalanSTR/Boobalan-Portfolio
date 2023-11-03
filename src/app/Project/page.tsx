@@ -6,7 +6,7 @@ import Footer from '../Homepage/footer'
 import Details from './details'
 import Project from './project'
 
-const page = () => {
+const Page = () => {
     const contactFormRef = useRef<HTMLDivElement>(null);
     const scrollToContactForm: MouseEventHandler<HTMLAnchorElement> = (event) => {
         event.preventDefault();
@@ -27,4 +27,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
