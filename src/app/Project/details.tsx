@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { ReactElement } from 'react';
 
-const Details = () => {
-    const projectDetails = [
+interface ProjectDetail {
+    title: string;
+    content: string | string[];
+}
+
+const Details: React.FC = () => {
+    const projectDetails: ProjectDetail[] = [
         { title: "Role", content: 'As the Frontend Developer, I was responsible for crafting the user interface and ensuring a smooth and engaging experience for all types of users.' },
         { title: 'Technologies Used', content: ['Frontend: Next.js', 'Backend: Node.js', 'Database: MongoDB', 'Type Checking: TypeScript', 'State Management: Redux Toolkit'] },
         { title: 'Overview', content: 'Boatstar is a vacation rental platform designed to emulate the functionality of Airbnb, focusing specifically on boat rentals. Users can browse and book boats for their vacation getaways.' },
@@ -11,6 +16,7 @@ const Details = () => {
         { title: 'Lessons Learned', content: 'Reflect on the valuable lessons learned during the project, including in-depth understanding of Next.js server-side rendering, effective Redux state management using Redux Toolkit, and proficient use of Tailwind CSS for styling.' },
         { title: 'Gained', content: ['Proficiency in internationalization with Next.js (next-i18n).', 'Deployment process through Vercel, including version control with Git and GitHub.'] }
     ];
+
     return (
         <div className='grid border-[#717171] bg-[#dddddd] lg:grid-cols-2 mt-10 py-5 px-3 sm:max-w-[83%] rounded-xl mx-auto gap-6'>
             {projectDetails.map((section, index) => (
@@ -33,7 +39,7 @@ const Details = () => {
                 </div>
             ))}
         </div>
-    )
-}
+    );
+};
 
-export default Details
+export default Details;

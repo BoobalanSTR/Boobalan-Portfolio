@@ -1,13 +1,15 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, ReactElement } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 
-const Project = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const slides = [
+interface ProjectProps { }
+
+const Project: React.FC<ProjectProps> = () => {
+    const [currentSlide, setCurrentSlide] = useState<number>(0);
+    const slides: string[] = [
         "/assets/img/main.png",
         "/assets/img/list.png",
         "/assets/img/detail.png",
@@ -17,15 +19,16 @@ const Project = () => {
         "/assets/img/profile.png",
         "/assets/img/account.png",
     ];
-    const handleOnChange = (index) => {
+
+    const handleOnChange = (index: number): void => {
         setCurrentSlide(index);
     };
 
-    const handlePrevSlide = () => {
+    const handlePrevSlide = (): void => {
         setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
     };
 
-    const handleNextSlide = () => {
+    const handleNextSlide = (): void => {
         setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     };
 
@@ -54,7 +57,6 @@ const Project = () => {
                     <ArrowBackIosIcon style={{ transform: 'rotate(180deg)' }} />
                 </IconButton>
             </div>
-
         </>
     );
 };
